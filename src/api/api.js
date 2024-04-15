@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const baseUrl = process.env.REACT_APP_API_URL;
-const token = process.env.REACT_APP_BACKEND_API_TOKEN;
+const baseUrl = window.config.baseUrl;
+const token = window.config.token;
 
 const headers = {
     'Authorization': 'Bearer ' + token
