@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const baseUrl = window.config.apiUrl;
-const token = window.config.token;
+const baseUrl = process.env.API_URL;
+const token = process.env.BACKEND_API_TOKEN;
 
 const headers = {
     'Authorization': 'Bearer ' + token
