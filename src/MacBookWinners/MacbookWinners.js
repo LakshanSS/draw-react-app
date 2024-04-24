@@ -46,7 +46,7 @@ const MacBookWinners = ({setDisplayNext}) => {
                 key={winner}
                 style={{ padding: 10 }}
               >
-                {winner}
+                {winner.name}
               </Typography>
             ))}
           </div>

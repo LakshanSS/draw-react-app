@@ -1,11 +1,6 @@
 import axios from 'axios';
 
 const baseUrl = window.config.baseUrl;
-const token = window.config.token;
-
-const headers = {
-    'Authorization': 'Bearer ' + token
-};
 
 export const getMacbookWinners = async () => {
     try {
