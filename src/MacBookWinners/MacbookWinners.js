@@ -67,17 +67,19 @@ const MacBookWinners = ({ setDisplayNext }) => {
     setLeftColumnWinners(winnersData.slice(0, 5));
     setRightColumnWinners(winnersData.slice(5));
     setDisplayWinners(true);
-    // setDisplayNext(true);
   };
 
   const [counter, setCounter] = useState(0);
   useEffect(() => {
-    setDisplayNext(counter> 10);
+      setDisplayNext(counter > 10);
   },[counter]);
+
   useEffect(() => {
     setCounter(1)
     const interval = setInterval(() => {
-      setCounter((counter) => counter + 1);
+      if (displayWinners) {
+         setCounter((counter) => counter + 1);
+      }
     }, 4000);
     return () => clearInterval(interval);
   }, [displayWinners]);
