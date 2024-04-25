@@ -27,7 +27,7 @@ const LoginPage = () => {
             onClick={() => (window.location.href = "/auth/login")}
             disableRipple
             startIcon={<img src="login-button.png" alt="Winners" style={{ width: '100%', maxWidth: '400px', height: 'auto' }} />}
-            style={{ backgroundColor: 'transparent',boxShadow:'none', width: '100%', maxWidth: '400px', height: 'auto', marginTop: '100px'}}
+            style={{ backgroundColor: 'transparent',boxShadow:'none', width: '100%', maxWidth: '200px', height: 'auto', marginTop: '100px'}}
           />
     </Box>
   );
