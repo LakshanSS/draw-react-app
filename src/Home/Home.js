@@ -12,23 +12,45 @@ const Home = () => {
 
   return (
     <div className="homeBackground">
-      {page === "macbookWinners" ? <MacBookWinners setDisplayNext={setDisplayNext} /> : <CyberTruckWinner />}
+      {page === "macbookWinners" ? (
+        <MacBookWinners setDisplayNext={setDisplayNext} />
+      ) : (
+        <CyberTruckWinner />
+      )}
       <Box
         sx={{
           display: "flex",
           justifyContent: "flex-end",
           alignItems: "flex-end",
-          marginRight: 30,
-          marginTop: 10,
+          marginRight: 10,
+          marginTop: -5
         }}
       >
         {displayNext && (
-          <Button variant="contained" color="primary" size="large" onClick={() => {
-            setPage("cyberTruckWinner");
-            setDisplayNext(false);
-          }}>
-            Next
-          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            disableRipple
+            startIcon={
+              <img
+                src="next-arrow.png"
+                alt="go"
+                style={{ width: "100%", maxWidth: "150", height: "auto" }}
+              />
+            }
+            style={{
+              backgroundColor: "transparent",
+              width: "100%",
+              maxWidth: "150px",
+              height: "auto",
+              boxShadow: "none"
+            }}
+            onClick={() => {
+              setPage("cyberTruckWinner");
+              setDisplayNext(false);
+            }}
+          />
         )}
       </Box>
     </div>

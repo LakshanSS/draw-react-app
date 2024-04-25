@@ -1,0 +1,24 @@
+@keyframes random {
+    from {
+        transform: translateY(-50%);
+    }
+    25% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30%);
+    }
+    75% {
+        transform: translateY(50%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+  }
+
+.animated-text{ 
+    /* .a-text { */
+        animation: 4s 1 ease-in-out random;
+        transform: translateY(0%);
+    /* } */
+}
