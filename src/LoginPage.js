@@ -15,11 +15,11 @@ const LoginPage = () => {
       }}
     >
       <Box>
-        <img
+        {/* <img
           src="/main-screen-header.png"
           alt="Winners"
           style={{ width: "100%", maxWidth: "700px", height: "auto", marginTop: '50px' }}
-        />
+        /> */}
       </Box>
       <Button
             variant="contained"
@@ -27,7 +27,7 @@ const LoginPage = () => {
             onClick={() => (window.location.href = "/auth/login")}
             disableRipple
             startIcon={<img src="login-button.png" alt="Winners" style={{ width: '100%', maxWidth: '400px', height: 'auto' }} />}
-            style={{ backgroundColor: 'transparent',boxShadow:'none', width: '100%', maxWidth: '200px', height: 'auto', marginTop: '100px'}}
+            style={{ backgroundColor: 'transparent',boxShadow:'none', width: '100%', maxWidth: '200px', height: 'auto', marginTop: '500px'}}
           />
     </Box>
   );

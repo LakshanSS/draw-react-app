@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import "./MacBookWinners.css";
 import Box from "@mui/material/Box";
 import { Button, Typography } from "@mui/material";
-import { getMacbookWinners } from "../api/api";
+import { getMacbookWinners, getParticipants } from "../api/api";
 import { AnimatedTypography } from "../AnimatedTypography/AnimatedTypography";
 
 const MacBookWinners = ({ setDisplayNext }) => {
   const [displayWinners, setDisplayWinners] = useState(false);
   const [winners, setWinners] = useState([]);
+  const [allParticipantNames, setAllParticipantNames] = useState(["Alex", "Bob", "David", "Benny", "Kate", "Jenna"]);
   const [leftColumnWinners, setLeftColumnWinners] = useState([]);
   const [rightColumnWinners, setRightColumnWinners] = useState([]);
 
@@ -62,6 +63,9 @@ const MacBookWinners = ({ setDisplayNext }) => {
   }, []);
 
   const showMacWinnersClicked = async () => {
+    const participantsData = await getParticipants();
+    const participantNames = participantsData.map(participant => participant.name);
+    setAllParticipantNames(participantNames);
     const winnersData = await getMacbookWinners();
     setWinners(winnersData);
     setLeftColumnWinners(winnersData.slice(0, 5));
@@ -84,15 +88,8 @@ const MacBookWinners = ({ setDisplayNext }) => {
     return () => clearInterval(interval);
   }, [displayWinners]);
   return (
-    <Box textAlign="center">
-      <Box>
-        <img
-          src="/macbook-pro-winners-header.png"
-          alt="Winners"
-          style={{ width: "100%", maxWidth: "800px", height: "auto", marginTop: "50px"}}
-        />
-      </Box>
-      <Box mt={10}>
+    <Box textAlign="center" className="macbookWinnersBackground">
+      <Box pt={50} pl={5}>
         {displayWinners ? (
           <div style={{ display: "flex" }}>
             {/* Left column */}
@@ -117,7 +114,7 @@ const MacBookWinners = ({ setDisplayNext }) => {
                       >
                         {index + 1}.
                       </Typography>
-                      <AnimatedTypography text={winner.name} />
+                      <AnimatedTypography actualWinner={winner.name} allParticipantNames={allParticipantNames} />
                     </Box>
                   )
                 );
@@ -146,7 +143,7 @@ const MacBookWinners = ({ setDisplayNext }) => {
                     >
                       {index + leftColumnWinners.length + 1}.
                     </Typography>
-                    <AnimatedTypography text={winner.name} />
+                    <AnimatedTypography actualWinner={winner.name} allParticipantNames={allParticipantNames}/>
                   </Box>
                   )
               )}
@@ -163,7 +160,7 @@ const MacBookWinners = ({ setDisplayNext }) => {
             disableRipple
             startIcon={
               <img
-                src="select-now-button.png"
+                src="select-winners.png"
                 alt="Winners"
                 style={{ width: "100%", maxWidth: "400px", height: "auto" }}
               />

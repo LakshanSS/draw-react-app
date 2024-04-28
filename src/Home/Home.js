@@ -23,7 +23,7 @@ const Home = () => {
           justifyContent: "flex-end",
           alignItems: "flex-end",
           marginRight: 10,
-          marginTop: -5
+          marginTop: -20
         }}
       >
         {displayNext && (

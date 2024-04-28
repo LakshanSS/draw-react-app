@@ -3,12 +3,19 @@ import "./CyberTruckWinner.css";
 import Box from "@mui/material/Box";
 import { Button, Typography } from "@mui/material";
 
-export const AnimatedTypography = ({ text }) => {
-    const randomeNames = ['Qusai Sadikot', 'Pulasthi Harasgama', 'Lakmal Malalgodage', 'Galucio Guerra', 'Hari Hariharan',
-      'Sourav Nanda', 'Sachintha Jayasanka', 'Nadeesha Bandara', 'Annu Thakur', 'Krishna Shrivastav',
-     text, 'Eva Alexandra', 'Sharon Xavier', 'Grace Molly', 'Helen Victoria', 'Lakshan Sivagnanasothy', 'Nuwan Dias', 'Anjala Dilhara',
-    'Sanjiwa Malagoda', 'Krishna Shrivastav', 'Rasika Maduranga']
-    const elements = randomeNames.map((name) => 
+export const AnimatedTypography = ({ actualWinner, allParticipantNames }) => {
+    // Ensure allParticipantNames has an even length
+    const adjustedNames = allParticipantNames.length % 2 === 0 ? allParticipantNames : allParticipantNames.slice(0, -1);
+    const middleIndex = adjustedNames.length / 2;
+
+    // Create a new array with the actualWinner in the middle
+    const participantNames = [
+        ...adjustedNames.slice(0, middleIndex),
+        actualWinner,
+        ...adjustedNames.slice(middleIndex)
+    ];
+    console.log(participantNames);
+    const elements = participantNames.map((name) => 
     <Typography variant="h2" color="#30fcfc" className="a-text" key={name} style={{ padding: 10, display:'flex', whiteSpace:'nowrap', justifyContent:'flex-start', fontFamily: 'Kanit, sans-serif', fontWeight: 500 }}>
       {name}
     </Typography>);
