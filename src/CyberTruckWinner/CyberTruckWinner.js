@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./CyberTruckWinner.css";
 import Box from "@mui/material/Box";
-import { Button, Typography } from "@mui/material";
-import { getCyberTruckWinner} from "../api/api";
+import { Button } from "@mui/material";
+import { getCyberTruckWinner, getParticipants } from "../api/api";
 import { AnimatedTypography } from "../AnimatedTypography/AnimatedTypography";
 
 const CyberTruckWinner = () => {
