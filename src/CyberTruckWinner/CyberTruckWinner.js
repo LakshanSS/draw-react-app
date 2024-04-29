@@ -27,7 +27,7 @@ const CyberTruckWinner = () => {
     <Box textAlign="center" className="cyberTruckWinnerBackground">
       <Box sx={{display: 'flex', justifyContent: 'center', pt: 50, pl: 5}}>
         {displayWinner ? (
-          <div style={{marginTop: 50, paddingLeft: 100}}>
+          <div style={{marginTop: 40, paddingLeft: 100}}>
             <AnimatedTypography actualWinner={winner.name} allParticipantNames={allParticipantNames}/>
           </div>
         ) : (
@@ -39,7 +39,7 @@ const CyberTruckWinner = () => {
               showCyberTruckWinnerClicked();
             }}
             disableRipple
-            startIcon={<img src="select-winner.png" alt="Winners" style={{ width: '100%', maxWidth: '400px', height: 'auto' }} />}
+            startIcon={<img src="select-winner.png" alt="Winners" style={{ width: '100%', maxWidth: '200px', height: 'auto' }} />}
             style={{ backgroundColor: 'transparent', width: '100%', maxWidth: '400px', height: 'auto',boxShadow:'none' }}
           />
         )}

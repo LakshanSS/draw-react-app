@@ -89,7 +89,7 @@ const MacBookWinners = ({ setDisplayNext }) => {
   }, [displayWinners]);
   return (
     <Box textAlign="center" className="macbookWinnersBackground">
-      <Box pt={50} pl={5}>
+      <Box pt={"19%"} pl={5}>
         {displayWinners ? (
           <div style={{ display: "flex" }}>
             {/* Left column */}
@@ -99,7 +99,7 @@ const MacBookWinners = ({ setDisplayNext }) => {
                   counter > index && (
                     <Box display="flex" flexDirection="row" key={winner.name}>
                       <Typography
-                        variant="h2"
+                        variant="h3"
                         color="#30fcfc"
                         className="a-text"
                         key={winner.name}
@@ -109,7 +109,7 @@ const MacBookWinners = ({ setDisplayNext }) => {
                           whiteSpace: "nowrap",
                           justifyContent: "flex-start",
                           fontFamily: "Kanit, sans-serif",
-                          fontWeight: 500,
+                          fontWeight: 400,
                         }}
                       >
                         {index + 1}.
@@ -128,7 +128,7 @@ const MacBookWinners = ({ setDisplayNext }) => {
                   counter > index + leftColumnWinners.length && (
                     <Box display="flex" flexDirection="row" key={winner.name}>
                     <Typography
-                      variant="h2"
+                      variant="h3"
                       color="#30fcfc"
                       className="a-text"
                       key={winner.name}
@@ -138,7 +138,7 @@ const MacBookWinners = ({ setDisplayNext }) => {
                         whiteSpace: "nowrap",
                         justifyContent: "flex-start",
                         fontFamily: "Kanit, sans-serif",
-                        fontWeight: 500,
+                        fontWeight: 400,
                       }}
                     >
                       {index + leftColumnWinners.length + 1}.
@@ -162,7 +162,7 @@ const MacBookWinners = ({ setDisplayNext }) => {
               <img
                 src="select-winners.png"
                 alt="Winners"
-                style={{ width: "100%", maxWidth: "400px", height: "auto" }}
+                style={{ width: "100%", maxWidth: "200px", height: "auto" }}
               />
             }
             style={{
