@@ -3,7 +3,7 @@ import "./CyberTruckWinner.css";
 import Box from "@mui/material/Box";
 import { Button, Typography } from "@mui/material";
 import { getCyberTruckWinner } from "../api/api";
-import { AnimatedTypography2 } from "../AnimatedTypography/AnimatedTypography";
+import { AnimatedTypography2, CTypography } from "../AnimatedTypography/AnimatedTypography";
 
 const CyberTruckWinner = () => {
   const [displayWinner, setDisplayWinner] = useState(false);
@@ -24,8 +24,9 @@ const CyberTruckWinner = () => {
     <Box textAlign="center" className="cyberTruckWinnerBackground">
       <Box sx={{display: 'flex', justifyContent: 'center', pt: 50, pl: 5}}>
         {displayWinner ? (
-          <div style={{marginTop: 40}}>
+          <div style={{marginTop: 40, flexDirection: "column", display: "flex", justifyContent: "center", alignItems: "center"}}>
             <AnimatedTypography2 actualWinner={winner.name}/>
+            <CTypography actualWinner={winner.country}/>
           </div>
         ) : (
           <Button
@@ -40,11 +41,6 @@ const CyberTruckWinner = () => {
             style={{ backgroundColor: 'transparent', width: '100%', maxWidth: '400px', height: 'auto',boxShadow:'none' }}
           />
         )}
-        {/* {displayWinner && (
-          <Typography variant="h3" color="#30fcfc">
-          {winner.country}
-        </Typography>
-        )} */}
       </Box>
     </Box>
   );
