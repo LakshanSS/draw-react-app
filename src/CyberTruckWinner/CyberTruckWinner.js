@@ -1,23 +1,20 @@
 import React, { useState, useEffect } from "react";
 import "./CyberTruckWinner.css";
 import Box from "@mui/material/Box";
-import { Button } from "@mui/material";
-import { getCyberTruckWinner, getParticipants } from "../api/api";
-import { AnimatedTypography } from "../AnimatedTypography/AnimatedTypography";
+import { Button, Typography } from "@mui/material";
+import { getCyberTruckWinner } from "../api/api";
+import { AnimatedTypography2 } from "../AnimatedTypography/AnimatedTypography";
 
 const CyberTruckWinner = () => {
   const [displayWinner, setDisplayWinner] = useState(false);
-  const [allParticipantNames, setAllParticipantNames] = useState(["asas", "gggg", "asas", "gggg", "asas", "gggg", "asas", "gggg", "asas", "gggg", "asas", "gggg"]);
   const [winner, setWinner] = useState({
-    name: 'Alex Smith'
+    name: 'Alex Smith Rajapaksha',
+    country: 'United States'
   });
 
   useEffect(() => {}, []);
 
   const showCyberTruckWinnerClicked = async () => {
-    const participantsData = await getParticipants();
-    const participantNames = participantsData.map(participant => participant.name);
-    setAllParticipantNames(participantNames);
     const winnerData = await getCyberTruckWinner();
     setWinner(winnerData);
     setDisplayWinner(true);
@@ -27,8 +24,8 @@ const CyberTruckWinner = () => {
     <Box textAlign="center" className="cyberTruckWinnerBackground">
       <Box sx={{display: 'flex', justifyContent: 'center', pt: 50, pl: 5}}>
         {displayWinner ? (
-          <div style={{marginTop: 40, paddingLeft: 100}}>
-            <AnimatedTypography actualWinner={winner.name} allParticipantNames={allParticipantNames}/>
+          <div style={{marginTop: 40}}>
+            <AnimatedTypography2 actualWinner={winner.name}/>
           </div>
         ) : (
           <Button
@@ -43,6 +40,11 @@ const CyberTruckWinner = () => {
             style={{ backgroundColor: 'transparent', width: '100%', maxWidth: '400px', height: 'auto',boxShadow:'none' }}
           />
         )}
+        {/* {displayWinner && (
+          <Typography variant="h3" color="#30fcfc">
+          {winner.country}
+        </Typography>
+        )} */}
       </Box>
     </Box>
   );

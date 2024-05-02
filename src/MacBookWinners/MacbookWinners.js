@@ -2,56 +2,55 @@ import React, { useState, useEffect } from "react";
 import "./MacBookWinners.css";
 import Box from "@mui/material/Box";
 import { Button, Typography } from "@mui/material";
-import { getMacbookWinners, getParticipants } from "../api/api";
-import { AnimatedTypography } from "../AnimatedTypography/AnimatedTypography";
+import { getMacbookWinners } from "../api/api";
+import { AnimatedTypography2 } from "../AnimatedTypography/AnimatedTypography";
 
 const MacBookWinners = ({ setDisplayNext }) => {
   const [displayWinners, setDisplayWinners] = useState(false);
   const [winners, setWinners] = useState([]);
-  const [allParticipantNames, setAllParticipantNames] = useState(["Alex", "Bob", "David", "Benny", "Kate", "Jenna"]);
   const [leftColumnWinners, setLeftColumnWinners] = useState([]);
   const [rightColumnWinners, setRightColumnWinners] = useState([]);
 
   const macbookWinners = [
     {
       orgId: "603ee67d-f752-4223-8613-2849091a999a",
-      name: "Philip",
+      name: "Alex John",
     },
     {
       orgId: "020e2bc8-f897-4521-aa7d-6a083982f234",
-      name: "Kasun T",
+      name: "Kenny Thomas",
     },
     {
       orgId: "910d8c3f-ba85-4197-803c-871a29817e06",
-      name: "Maduranga Rathnamalala",
+      name: "David Wellington",
     },
     {
       orgId: "b8234034-82f9-49e2-ab6f-885e9072bed9",
-      name: "Sachini Dissanayaka",
+      name: "Tommy Lee",
     },
     {
       orgId: "cbab72d1-592f-4164-b01e-906d33d0634d",
-      name: "Naqeeb Maknojia",
+      name: "Nancy Drew",
     },
     {
       orgId: "7fa3d30c-984a-43f0-a72c-65ca28d2518b",
-      name: "Jangid Jeetmal",
+      name: "Benny Hill",
     },
     {
       orgId: "ff6624d3-6f80-4991-9751-e3a227baa3b0",
-      name: "Kelum Thenuwara",
+      name: "Quincy Jones",
     },
     {
       orgId: "6a14cba3-52c3-4c06-89b0-1c8540533c3c",
-      name: "Lakvin Amarasinghe",
+      name: "Mickey Mouse",
     },
     {
       orgId: "7d22e454-0f59-40b8-9e47-334c1f83424a",
-      name: "Mohamed Fathir",
+      name: "Nina Simone",
     },
     {
       orgId: "ed37af5d-1211-464f-b1ca-6d1aa013f2fd",
-      name: "Anjala Dilhara",
+      name: "Oscar Wilde",
     },
   ];
 
@@ -63,9 +62,6 @@ const MacBookWinners = ({ setDisplayNext }) => {
   }, []);
 
   const showMacWinnersClicked = async () => {
-    const participantsData = await getParticipants();
-    const participantNames = participantsData.map(participant => participant.name);
-    setAllParticipantNames(participantNames);
     const winnersData = await getMacbookWinners();
     setWinners(winnersData);
     setLeftColumnWinners(winnersData.slice(0, 5));
@@ -114,7 +110,7 @@ const MacBookWinners = ({ setDisplayNext }) => {
                       >
                         {index + 1}.
                       </Typography>
-                      <AnimatedTypography actualWinner={winner.name} allParticipantNames={allParticipantNames} />
+                      <AnimatedTypography2 actualWinner={winner.name}/>
                     </Box>
                   )
                 );
@@ -143,7 +139,7 @@ const MacBookWinners = ({ setDisplayNext }) => {
                     >
                       {index + leftColumnWinners.length + 1}.
                     </Typography>
-                    <AnimatedTypography actualWinner={winner.name} allParticipantNames={allParticipantNames}/>
+                    <AnimatedTypography2 actualWinner={winner.name}/>
                   </Box>
                   )
               )}
