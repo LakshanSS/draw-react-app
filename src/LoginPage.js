@@ -7,7 +7,7 @@ const LoginPage = () => {
     <Box
       sx={{
         minHeight: "100vh",
-        backgroundImage: `url(/main-background.png)`,
+        backgroundColor: "black",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover", // Ensures the background covers the area without spaces
         backgroundPosition: "center", // Centers the background image
